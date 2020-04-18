@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using imdossin.Models;
+using imdossin.Data;
 
 namespace imdossin
 {
@@ -24,6 +27,9 @@ namespace imdossin
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<DataContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("DataContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

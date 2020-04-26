@@ -10,22 +10,22 @@ using imdossin.Models;
 
 namespace imdossin.Controllers
 {
-    public class ProductsController : Controller
+    public class Show_proController : Controller
     {
         private readonly DataContext _context;
 
-        public ProductsController(DataContext context)
+        public Show_proController(DataContext context)
         {
             _context = context;
         }
 
-        // GET: Products
+        // GET: Show_pro
         public async Task<IActionResult> Index()
         {
             return View(await _context.Products.ToListAsync());
         }
 
-        // GET: Products/Details/5
+        // GET: Show_pro/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -43,15 +43,15 @@ namespace imdossin.Controllers
             return View(product);
         }
 
-        // GET: Products/Create
+        // GET: Show_pro/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Products/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Show_pro/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Prod_ID,Prod_Name,Price,Size,Quantity,Supplier,Date,Description,Image,UrlImage,Status_ID")] Product product)
@@ -64,7 +64,8 @@ namespace imdossin.Controllers
             }
             return View(product);
         }
-        // GET: Products/Edit/5
+
+        // GET: Show_pro/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -80,9 +81,9 @@ namespace imdossin.Controllers
             return View(product);
         }
 
-        // POST: Products/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Show_pro/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Prod_ID,Prod_Name,Price,Size,Quantity,Supplier,Date,Description,Image,UrlImage,Status_ID")] Product product)
@@ -115,7 +116,7 @@ namespace imdossin.Controllers
             return View(product);
         }
 
-        // GET: Products/Delete/5
+        // GET: Show_pro/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -133,7 +134,7 @@ namespace imdossin.Controllers
             return View(product);
         }
 
-        // POST: Products/Delete/5
+        // POST: Show_pro/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

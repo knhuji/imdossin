@@ -1,0 +1,124 @@
+﻿@model IEnumerable<imdossin.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<section class="ftco-section bg-light">
+    <div class="container">
+        <div class="row justify-content-center mb-3 pb-3">
+            <div class="col-md-12 heading-section text-center ftco-animate">
+                <h1 class="big">Products</h1>
+                <h2 class="mb-4">Our Products</h2>
+            </div>
+        </div>
+    </div>
+    @*--------------------------Products--------------------------*@
+    <div class="container-fluid">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-sm col-md-6 col-lg ftco-animate">
+                    <div class="product">
+                        <a class="img-prod" asp-area="" asp-controller="Show_pro" asp-action="Details" asp-route-id="@item.Prod_ID"><img class="img-fluid" src="images/product-1.jpg" ></a>    @*Chưa làm hình ảnh*@
+                        <div class="text py-3 px-3">
+                            <h3><a asp-area="" asp-controller="Show_pro" asp-action="Details" asp-route-id="@item.Prod_ID">@Html.DisplayFor(modelItem => item.Prod_Name)</a></h3>
+                            <div class="d-flex">
+                                <div class="pricing">
+                                    <p class="price"><span>@Html.DisplayFor(modelItem => item.Price)</span></p>
+                                </div>
+                            </div>
+                            <hr>
+                            <p class="bottom-area d-flex">
+                                <a href="#" class="add-to-cart"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    @*--------------------------EndProducts--------------------------*@
+</section>
+
+    @*<p>
+            <a asp-action="Create">Create New</a>
+        </p>*@
+    @*<table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Prod_Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Price)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Size)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Quantity)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Supplier)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Date)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Description)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Image)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.UrlImage)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Status_ID)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+        @foreach (var item in Model) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Prod_Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Size)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Supplier)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Image)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UrlImage)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status_ID)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Prod_ID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Prod_ID">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Prod_ID">Delete</a>
+                    </td>
+                </tr>
+        }
+            </tbody>
+        </table>*@

@@ -20,7 +20,7 @@
             {
                 <div class="col-sm col-md-6 col-lg ftco-animate">
                     <div class="product">
-                        <a class="img-prod" asp-area="" asp-controller="Show_pro" asp-action="Details"><img class="img-fluid" src="images/product-1.jpg" ></a>    @*Chưa làm hình ảnh*@
+                        <a class="img-prod" asp-area="" asp-controller="Show_pro" asp-action="Details" asp-route-id="@item.Prod_ID"><img class="img-fluid" src="images/product-1.jpg" ></a>    @*Chưa làm hình ảnh*@
                         <div class="text py-3 px-3">
                             <h3><a asp-area="" asp-controller="Show_pro" asp-action="Details" asp-route-id="@item.Prod_ID">@Html.DisplayFor(modelItem => item.Prod_Name)</a></h3>
                             <div class="d-flex">

@@ -1,0 +1,96 @@
+﻿@model LoginViewModel;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+
+
+    <link rel="stylesheet" href="~/css/Login.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="overlay">
+            <!-- LOGN IN FORM by Omar Dsoky -->
+            <form asp-action="Login" asp-controller="Account" method="post">
+                <!--   con = Container  for items in the form-->
+                <div class="con">
+                    <!--     Start  header Content  -->
+                    <header class="head-form">
+                        <h2>Log In</h2>
+                        <!--     A welcome message or an explanation of the login form -->
+                        <p>login here using your username and password</p>
+                    </header>
+                    <!--     End  header Content  -->
+                    <br>
+                    <div class="field-set">
+
+                        <!--   user name -->
+                        <span class="input-item " asp-validation-for="Username">
+                            
+                        </span>
+                        <!--   user name Input-->
+                        <input class="form-input" asp-for="Username" id="Username" type="text" placeholder="UserName" required>
+
+                        <br>
+
+                        <!--   Password -->
+
+                        <span class="input-item" asp-validation-for="Password">
+                            
+                        </span>
+                        <!--   Password Input-->
+                        <input class="form-input" asp-for="Password" type="password" placeholder="Password" id="Password" name="Password" required>
+
+                        <!--      Show/hide password  -->
+                        
+
+
+                        <br>
+                        <!--        buttons -->
+                        <!--      button LogIn -->
+                        <button class="log-in"> Log In </button>
+                    </div>
+
+                    <!--   other buttons -->
+                    <div class="other">
+                        <!--      Forgot Password button-->
+                        <button class="btn submits frgt-pass">Forgot Password</button>
+                        <!--     Sign Up button -->
+                        <button class="btn submits sign-up">
+                            Sign Up
+                            <!--         Sign Up font icon -->
+                            <i class="fa fa-user-plus" aria-hidden="true"></i>
+                        </button>
+                        <!--      End Other the Division -->
+                    </div>
+
+                    <!--   End Conrainer  -->
+                </div>
+
+                <!-- End Form -->
+            </form>
+        </div>
+
+    </div>
+
+
+
+    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
+
+    <script src="~/js/Login.js"></script>
+
+
+</body>
+</html>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

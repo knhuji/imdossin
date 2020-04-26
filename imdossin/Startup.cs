@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using imdossin.Models;
 using imdossin.Data;
+using imdossin.Infrastructure;
 
 namespace imdossin
 {
@@ -30,6 +31,13 @@ namespace imdossin
 
             services.AddDbContext<DataContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DataContext")));
+            services.Configure<AppSettings>(Configuration);
+            services.AddHttpClient<IHttpClient, CustomHttpClient>();
+            
+            services.AddControllersWithViews();
+
+            services.AddAuthentication("Cookies")
+                .AddCookie("Cookies");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,9 +62,7 @@ namespace imdossin
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapDefaultControllerRoute();
             });
         }
     }
